@@ -1,28 +1,8 @@
-[title]=Nasce microcoso, un cms minimale diy
-[date]=2025-12-18
-[author]=Dan1
-Ho deciso di scrivermi da solo un piccolo CMS minimale.
-Avevo bisogno di qualcosa di molto semplice per gestire un piccolo blog/diario personale.
-Con il tempo vedremo se ci sarà la necessità di passare a qualcosa di più evoluto, oppure di sviluppare ulteriormente questo mio codice.
+[title]=First Post
+[date]=2025-12-06
+[author]=Author's Name
+This is a sample post for microcoso.
 &nbsp;
-Non ho utilizzato i vari generatori di siti statici in circolazione perché ritengo che, per le mie esigenze, siano fin troppo complessi. 
-Persino i più semplici come [link: Eleventy | https://www.11ty.dev/ ].
+This is not a CMS for lazy peolple. Here you have to write your posts in txt files, using some custom syntax and a mix of html code.
 &nbsp;
-Probabilmente complice di questa mia riluttanza verso la modernità è anche la mia formazione. 
-Ho iniziato a fare siti web all'università, parliamo dei primi anni 2000. 
-All'epoca realizzavo piccoli siti in html/css scritto a mano, per me e per alcuni progetti open source.
-L'idea che oggi, per scrivere quattro scemate online, sia necessario installare (nella migliore delle ipotesi) un framework come node.js , clonare con git un repository, rivedere 3 o 4 file di configurazione, e poi imparare il markdown...
-Beh ho altro da fare nella vita. 
-&nbsp;
-Con poco più di duecento righe in php questo sito legge il contenuto dei miei post da file. 
-C'è una formattazione custom che viene interpretata dal php, con la quale posso inserire il titolo del post, la data, l'autore e persino link ed immagini.
-&nbsp;
-Il tutto scrivendo un semplice file txt.
-&nbsp;
-[image: Lavorando a microcoso, sulla destra un post | img/2.png ]
-&nbsp;
-Trovo la mia formattazione custom più semplice del markdown, che per quanto potente include una marea di possibilità.
-&nbsp;
-Inoltre è più divertente ed educativo.
-[image: Logo di PHP | img/1.png ]
-E questo è un link al mio sito: [link: Visita il mio sito | https://example.com/ ]
+For more information visit [link: README on github | https://github.com/danieleflorio/microcoso ]
