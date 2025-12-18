@@ -1,0 +1,6 @@
+[title]=Post numero due
+[date]=2025-12-18
+[author]=Dani
+Questo è un paragrafo che contiene un'immagine:
+[image: Immagine test | img/1.png ]
+E questo è un link per prova: [link: Visita il mio sito | https://example.com/ ]
