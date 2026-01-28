@@ -131,37 +131,30 @@ if ($requested_post_slug) {
             echo $is_single_post && $current_post ? htmlspecialchars($current_post['title']) : 'dan1 blog'; 
         ?>
     </title>
+    <link id="theme-style" rel="stylesheet" href="css/light.css">
     <style>
-        body { font-family: sans-serif; max-width: 800px; margin: 0 auto; line-height: 1.6; background-color: #fcf1f0;  }
-        .post-summary { border-bottom: 2px solid #ddd; padding: 20px 0; margin-bottom: 20px; }
-        .post-title { color: rgba(0, 0, 0, 1); margin-top: 0; }
-        .post-title a { text-decoration: none; color: inherit; }
-        .post-title a:hover { text-decoration: underline; }
-        .post-body p { margin: 0 0 10px 0; }
-        figure { margin: 15px 0; border: 1px solid #eee; padding: 10px; text-align: center; }
-        figcaption { font-style: italic; font-size: 0.9em; color: #666; }
-        footer { text-align: center; font-size: 0.8em; color: #999; margin: 40px 0 20px 0; }
-        a { color: #000;}
-        a:hover { color: #666; }
-        a:visited { color: #000; }
-        
-        /* Stili per l'anteprima (solo in modalità elenco) */
-        .preview-content { position: relative; }
-        .home .preview-content { max-height: 200px; overflow: hidden; } /* Limite di altezza in home */
-        .home .preview-content::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50px;
-            background: linear-gradient(to top, white, rgba(255, 255, 255, 0));
-        }
-        .single-post .read-more { display: none; } /* Nasconde il link "Leggi tutto" nella pagina singola */
-        .home-link { margin-bottom: 20px; display: block; }
+        .theme-toggle { position: fixed; top: 12px; right: 12px; z-index: 999; }
+        .theme-toggle button { padding: 6px 10px; border-radius: 4px; border: none; cursor: pointer; }
     </style>
 </head>
 <body class="<?php echo $is_single_post ? 'single-post' : 'home'; ?>">
+
+    <header class="site-header">
+        <div class="header-inner">
+            <?php if ($is_single_post && $current_post): ?>
+                <h1 class="page-title"><?php echo htmlspecialchars($current_post['title']); ?></h1>
+            <?php else: ?>
+                <h1 class="page-title">&lt;dan1&gt;</h1>
+            <?php endif; ?>
+
+            <div class="header-controls">
+                <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Switch theme" title="Switch theme" aria-pressed="false">
+                    <svg class="icon icon-moon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>
+                    <svg class="icon icon-sun" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="none"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
 
     <?php if ($is_single_post): ?>
         
@@ -169,7 +162,7 @@ if ($requested_post_slug) {
         
         <?php if ($current_post): ?>
             <article class="full-post">
-                <h1 class="post-title"><?php echo htmlspecialchars($current_post['title']); ?></h1>
+                <h2 class="post-title"><?php echo htmlspecialchars($current_post['title']); ?></h2>
                 
                 <p class="metadata">
                     Pubblicato il: <strong><?php echo htmlspecialchars($current_post['date']); ?></strong> 
@@ -192,7 +185,7 @@ if ($requested_post_slug) {
 
     <?php else: ?>
     
-        <h1>&lt;dan1&gt;</h1>
+        <!-- site title moved to header -->
         
         <?php if (empty($posts)): ?>
             <p>Nessun file di contenuto trovato. Crea i tuoi file .txt nella cartella '<?php echo $content_dir; ?>'.</p>
@@ -228,6 +221,38 @@ if ($requested_post_slug) {
             <p>Sviluppato in PHP.</p>
         </div>
     </footer>
+
+<script>
+(function(){
+    var themeLink = document.getElementById('theme-style');
+    var toggleBtn = document.getElementById('theme-toggle-btn');
+    var LIGHT = 'css/light.css';
+    var DARK = 'css/dark.css';
+
+    function applyTheme(name){
+        if(!themeLink) return;
+        var href = (name === 'dark') ? DARK : LIGHT;
+        themeLink.setAttribute('href', href);
+        try { localStorage.setItem('theme', name); } catch(e){}
+        // expose the current theme to CSS via data-theme on <html>
+        document.documentElement.setAttribute('data-theme', name);
+        if(toggleBtn) toggleBtn.setAttribute('aria-pressed', name === 'dark' ? 'true' : 'false');
+    }
+
+    var stored = null;
+    try { stored = localStorage.getItem('theme'); } catch(e){}
+    var initial = (stored === 'dark') ? 'dark' : 'light';
+    applyTheme(initial);
+
+    if(toggleBtn){
+        toggleBtn.addEventListener('click', function(){
+            var current = (localStorage.getItem('theme') === 'dark') ? 'dark' : 'light';
+            var next = (current === 'dark') ? 'light' : 'dark';
+            applyTheme(next);
+        });
+    }
+})();
+</script>
 
 </body>
 </html>
