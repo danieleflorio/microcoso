@@ -45,17 +45,66 @@ Create .txt files in the content/ folder to publish new posts. Each post support
 
 #### Content Elements
 
-\\\
+```
 [image: Image description | img/imagefile.png]
 [link: Link text | https://example.com/]
-\\\
+```
+
+#### Text Formatting
+
+```
+**bold text**
+*italic text*
+```
+
+#### Headings
+
+```
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+```
+
+#### Lists
+
+**Unordered list:**
+```
+- Item 1
+- Item 2
+- Item 3
+```
+
+**Ordered list:**
+```
+1. First item
+2. Second item
+3. Third item
+```
+
+#### Code
+
+**Inline code:**
+```
+Use `variable_name` in your text
+```
+
+**Code block:**
+````
+```
+function example() {
+  return "Hello World";
+}
+```
+````
 
 ### Example
 
-See \content/post1.txt\ and \content/post2.txt\ for complete examples of properly formatted posts.
+See `content/post1.txt` and `content/post2.txt` for complete examples of properly formatted posts.
 
 ### Styling
 
 The CMS includes two theme options:
-- **Light theme** (\css/light.css\)
-- **Dark theme** (\css/dark.css\)
+- **Light theme** (`css/light.css`)
+- **Dark theme** (`css/dark.css`)
