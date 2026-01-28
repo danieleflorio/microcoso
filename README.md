@@ -1,4 +1,4 @@
-# microcoso
+﻿# microcoso
 
 Microcoso is a VERY BASIC cms written in PHP.
 
@@ -9,27 +9,53 @@ It may contain security flaws, so USE IT AT YOUR OWN RISK.
 
 Currently in italian, but I'll be translating it soon.
 
-How it works:
+## How it works
 
-You need to place the index.php file in the root directory of your website, editing it as necessary.
+### Setup
 
-There are three folders:
+1. Place index.php in the root directory of your website
+2. Edit index.php as needed to customize your site (styling, configuration, etc.)
 
-- content: here you need to insert the posts in the form of text files
-- img: the folder containing the images for the posts
-- templates: currently contains a sample template for posts
+### Directory Structure
 
-Each text file (post) inserted in the “content” folder supports the following syntax:
+The CMS uses a simple folder organization:
 
-[title]=Title of the post : to insert title
+- **content/** - Store your blog posts here as .txt files
+- **img/** - Place all images used in your posts here
+- **css/** - Stylesheets for light and dark themes
+- **templates/** - Contains template files for post rendering
 
-[date]=2025-12-18 : to insert date, will be used for sorting articles on the main page
+### Writing Posts
 
-[author]=Author's name : to insert the name of the author, if not present will be shown “Autore Sconosciuto” which is Italian for “unknown author”
+Create .txt files in the content/ folder to publish new posts. Each post supports the following syntax:
 
-[image: Image description | img/imagefile.png ] : to insert an image
+#### Post Metadata
 
-[link: Link description | https://example.com/ ] to insert a link
+\\\
+[title]=Your Post Title
+[date]=2025-12-18
+[author]=Author Name
+\\\
 
-See the provided examples post for reference.
+| Field | Syntax | Notes |
+|-------|--------|-------|
+| Title | \[title]=Post Title\ | Required for the post to appear |
+| Date | \[date]=YYYY-MM-DD\ | Used for sorting posts chronologically |
+| Author | \[author]=Author Name\ | If omitted, displays "Autore Sconosciuto" (Unknown Author) |
 
+#### Content Elements
+
+\\\
+[image: Image description | img/imagefile.png]
+[link: Link text | https://example.com/]
+\\\
+
+### Example
+
+See \content/post1.txt\ and \content/post2.txt\ for complete examples of properly formatted posts.
+
+### Styling
+
+The CMS includes two theme options:
+- **Light theme** (\css/light.css\)
+- **Dark theme** (\css/dark.css\)
