@@ -1,5 +1,0 @@
-[title]=Post title
-[date]=2025-12-18
-[author]=Author's Name
-This is a paragraph containing an image: [image: Test image | img/1.png ]
-And this is a link for testing: [link: Visit my website | https://example.com/ ]

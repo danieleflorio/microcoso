@@ -23,7 +23,9 @@ The CMS uses a simple folder organization:
 - **content/** - Store your blog posts here as .txt files
 - **img/** - Place all images used in your posts here
 - **css/** - Stylesheets for light and dark themes
-- **templates/** - Contains template files for post rendering
+- **templates/** - (Optional) Example templates and sample post files for reference; not required by the CMS.
+
+> Note: The CMS renders posts using the built-in logic in `index.php`; templates are not loaded automatically.
 
 ### Writing Posts
 
